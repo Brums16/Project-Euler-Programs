@@ -1,25 +1,28 @@
 function largestPalindromeProduct(n) {
-let product
-	for (let i = 1*10**n-1;1*10**(n-1);i--){
-		console.log(i)
-  
-    for (let j = 1*10**n-1;1*10**(n-1);j--){
-		console.log(j)
-		product = i*j
-		productArr=String(product).split("")
-		console.log(productArr)
-		for(let k = 0;k<productArr.length;k++){
-		    if (productArr[k]!==productArr[productArr.length-1-k]){
-		    console.log("not a pal")
-		        
-		    } else{
-		        console.log("it's the first pal!")
-		        console.log("the first pal is: " + product)
-		        console.log("I made it by multiplying " + i + " and " + j)
-		        return product
-		    }
-		
-}
-}
-}
-}
+	let greatestPal = 0
+	
+	let product
+	let productString
+	let productBackString
+		for (let i=1*10**(n-1);i <1*10**n;i++){
+			
+	  
+		for (let j = 1*10**(n-1);j<1*10**n;j++){
+			
+			product = i*j
+			productString=String(product)
+			productBackString=String(product).split("").reverse().join("")
+			if (productString===productBackString){
+				console.log("I found a palindrome: " + productString)
+				if(Number(productString)>greatestPal){
+					console.log("the biggest so far!")
+					greatestPal = productString
+				}
+			}
+			
+	}
+	}
+	console.log(greatestPal)
+	return Number(greatestPal)
+	}
+	
